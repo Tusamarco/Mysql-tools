@@ -83,6 +83,20 @@
 #
 # The list of remote masters is defined by the variable: MASTERS_LIST  (see below)
 #
+# It is possible to assign weight to each node present in the cluster,
+# or not assign it in which case the default value will be 0.
+# if all nodes have 0 weight, then the new slave will be choose using the internal index
+#+---------+----------+--------+
+#| cluster | nodename | weight |
+#+---------+----------+--------+
+#| lab2    | node1    |     10 |
+#| lab2    | node2    |     11 |
+#| lab2    | node3    |      9 |
+#| labDC2  | node4    |     12 |
+#| labDC2  | node5    |     11 |
+#| labDC2  | node6    |     10 |
+#+---------+----------+--------+
+
 # The mysql credentials needs to be in the .my.cnf file of the user under which
 # the script run.  I needs SELECT, INSERT and UPDATE on percona.repliction 
 # and SUPER on *.*
